@@ -1,19 +1,23 @@
 {% extends 'bootstrap/base.html' %}
 {% block html_attribs %} lang='zh-CN' {% endblock html_attribs %}
 {% block title %}Mollusk{% endblock title %}  # 网页名
-{% block meta %}
+{% block metas %}
     {{ super() }}
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
-{% endblock meta %}
+{% endblock metas %}
 {% block styles %}
     {{ super() }}
     <!-- Main Stylesheet File -->
     <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
 {% endblock styles %}
-
+{% block head %}
+    {{ super() }}
+    <link rel="icon" href="{{ url_for('static', filename='image/favicon.png') }}">
+    <link href="{{ url_for('static', filename='image/apple-touch-icon.png') }}" rel="apple-touch-icon">
+{% endblock head %}
 {% block navbar %}
     <!-- Fixed navbar -->
   <div class="navbar navbar-inverse navbar-fixed-top">
@@ -25,7 +29,7 @@
             <span class="icon-bar"></span>
           </button>
         <a class="pull-left" href="#">
-            <img class="img-responsive" src="{{ url_for('static', filename='image/logo3.png') }}"
+            <img class="img-responsive" src="{{ url_for('static', filename='image/logo3.png') }}">
         </a>
       </div>
       <div class="navbar-collapse collapse">
