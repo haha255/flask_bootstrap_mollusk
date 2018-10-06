@@ -1,12 +1,14 @@
+# coding=utf-8
 from flask import Flask
 from flask_bootstrap import Bootstrap
 from config import config
 from flask_sqlalchemy import SQLAlchemy
-
+from flask_login import LoginManager
 
 __author__ = 'LYH'
 bootstrap = Bootstrap()  # 模板对象
 db = SQLAlchemy()  # 数据库对象
+login_manager = LoginManager()  # 登录管理对象
 
 
 def create_app(config_name):
