@@ -7,3 +7,13 @@ import os
 @main.route('/', methods=['POST', 'GET'])
 def index():
     return render_template('index.html')
+
+
+@main.route('/works')
+def works():
+    return render_template('works.html')
+
+
+@main.route('/about')
+def about():
+    return render_template('about.html')

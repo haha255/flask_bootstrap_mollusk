@@ -1,0 +1,11 @@
+{% extends 'basic_common/mybase.html' %}
+{% block styles %}
+    {{ super() }}
+    <link href="{{ url_for('static', filename='css/auth.css') }}" rel="stylesheet">
+{% endblock styles %}
+{% block body %}
+    {{ super() }}
+    <div id="auth-bg">
+        <p>asdfoi1o239</p>
+    </div>
+{% endblock %}

@@ -3,11 +3,18 @@
 
 {% block body %}
     {{ super() }}
+    <script type="text/javascript">
+        $('.navbar-nav').find('a').each(function () {
+            if (this.href == document.location.href || document.location.href.search(this.href) >= 0) {
+                $(this).parent().addClass('active'); // this.className = 'active';
+            }
+        });
+    </script>
     <div id="headerwrap">
         <div class="container">
             <div class="row centered">
                 <div class="col-lg-8 col-lg-offset-2">
-                    <h2>贝类遗传育种分析评估系统</h2>
+                    <h1><b>贝类遗传育种分析评估系统</b></h1>
                 </div>
             </div>
         </div>
