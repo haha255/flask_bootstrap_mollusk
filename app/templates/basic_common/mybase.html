@@ -29,7 +29,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                   </button>
-                <a class="pull-left" href="#">
+                <a class="navbar-left" style="height: 50px;" href="{{ url_for('main.index') }}">
                     <img class="img-responsive" src="{{ url_for('static', filename='image/logo3.png') }}">
                 </a>
             </div>
@@ -38,9 +38,16 @@
                     <li><a href="{{ url_for('main.index') }}">首页</a></li>
                     <li><a href="{{ url_for('main.works') }}">业务</a></li>
                     <li><a href="{{ url_for('main.about') }}">关于</a></li>
-                    <li><a href="{{ url_for('auth.register') }}"><span class="glyphicon glyphicon-user"></span> 注册</a> </li>
+                    <li class="divider"></li>
+                    <li><a href="{{ url_for('auth.register') }}"><span class="glyphicon glyphicon-pencil"></span> 注册</a> </li>
                     {% if current_user.is_authenticated %}
-                        <li><a href=" {{ url_for('auth.logout') }}"><span class="glyphicon glyphicon-log-out"></span> 退出</a></li>
+                        <li class="dropdown navbar-inverse">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> 您好,{{ current_user.username | truncate(9, True) }} <b class="caret"></b></a>
+                            <ul class="dropdown-menu navbar-inverse">
+                                <li><a href="{{ url_for('auth.setting') }}" style="color: rgb(222, 222, 222)"><span class="glyphicon glyphicon-wrench"></span> 用户设置</a></li>
+                                <li><a href="{{ url_for('auth.logout') }}" style="color: rgb(222, 222, 222)"><span class="glyphicon glyphicon-log-out"></span> 退出</a></li>
+                            </ul>
+                        </li>
                     {% else %}
                         <li><a href="{{ url_for('auth.login') }}"><span class="glyphicon glyphicon-log-in"></span> 登录</a></li>
                     {% endif %}
